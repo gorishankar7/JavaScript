@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p id="demo"></p>
+
+<script>
+var currency={AED:4.312252,AFN:91.902162,ALL:122.992416,AMD:625.930092,ANG:2.10685,AOA:739.582022,ARS:107.96168,AUD:1.540952,AWG:2.11316,AZN:1.995195}
+console.log(currency);
+var newCurrency = [];
+
+for(var code in currency){
+	var setObjName={};
+	setObjName['label'] = code;
+	setObjName['value'] = currency[code];
+	newCurrency.push(setObjName);
+
+	console.log(setObjName);
+	for(setObjName=0; setObjName<code.length; setObjName++){
+}
+}
+console.log(newCurrency);
+
+			
+</script>
+</body>
+</html>
+
