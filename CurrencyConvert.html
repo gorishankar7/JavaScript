@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Currency Converter</title>
+</head>
+<body style="text-align: center;">
+
+<div style="background-color: #b3d1ff" >
+<h1>Currency Converter</h1>
+<p>Write a Value for get Currenct Price</p>
+
+<div style="text-align:center; margin: 10px;">
+<select name="currency1" id="currency1" onchange="drop1()">
+    
+  </select>
+
+<input type="number" id="c1" name="txt1" placeholder="0">
+</div>
+
+<div style="text-align:center;" >
+<select name="currency2" id="currency2" onchange="drop2()">
+   
+  </select>
+ 
+<input id="c2" name="txt2" placeholder="0">
+</div>
+<!-- <button id="cnt" onclick="convert()" style="margin-top: 10px; margin-bottom: 20px;">Convert</button> -->
+</div>
+
+
+<script>
+	var currency = {USD:4.312252,INR:91.902162,AUD:122.992416,AED:625.930092}
+	var newCurrency = [];
+
+for(var code in currency){
+	var setObjName={};
+	setObjName['label'] = code;
+	setObjName['value'] = currency[code];
+	newCurrency.push(setObjName);
+
+	//DropDown Currency First
+	var dropDown = document.getElementById("currency1");
+	var option = document.createElement("option")
+	option.textContent = code;
+	option.value = code;
+	dropDown.appendChild(option);
+
+	//DropDown Currency Second
+	var dropDown = document.getElementById("currency2");
+	var option = document.createElement("option")
+	option.textContent = code;
+	option.value = code;
+	dropDown.appendChild(option);
+	currency2.selectedIndex = 1;
+
+}
+
+
+console.log(newCurrency);
+
+function convert(){
+	var input1 = document.getElementById("c1").value;
+	var input2 = document.getElementById("c2").value;
+
+	var selectedDrop = document.getElementById("currency1").value;
+		var selectedDrop2 = document.getElementById("currency2").value;
+		var data = currency[selectedDrop];
+		var data2 = currency[selectedDrop2];
+
+		var input1 = document.getElementById("c1").value;
+		var input2 = document.getElementById("c2").value;
+
+		var result = document.getElementById("c2").value = data1*input1;
+
+
+	if (input1 == '') 
+	{
+	alert("Please write any Value")
+	}else(
+
+				document.getElementById("c2").value =  input1);
+
+}
+
+function drop1(){
+	var selectedDrop = document.getElementById("currency1").value;
+	var data1 = currency[selectedDrop];
+	var input1 = document.getElementById("c1").value;
+	var result1 = document.getElementById("c2").value = data1*input1;
+	console.log(result);
+
+}
+
+function drop2(){
+	var selectedDrop = document.getElementById("currency2").value;
+	var data2 = currency[selectedDrop];
+	var input1 = document.getElementById("c1").value;
+	var input2 = document.getElementById("c2").value;
+
+	// var result2 = document.getElementById("c1").value = data2*input2;
+
+	var result2 = document.getElementById("c2").value = data2*input1;
+	console.log(selectedDrop);
+}
+
+</script>
+</body>
+</html>
