@@ -5,7 +5,7 @@
 </head>
 <body style="text-align: center;">
 
-<div style="background-color: #b3d1ff" >
+<div style="background-color: #b3d1ff; margin: 100px; padding: 100px;">
 <h1>Currency Converter</h1>
 <p>Write a Value for get Currenct Price</p>
 <div style="text-align:center; margin: 10px;">
@@ -21,14 +21,14 @@
  
 <input id="c2" name="txt2" placeholder="0" onchange="drop2()">
 </div>
-<!-- <button id="cnt" onclick="convert()" style="margin-top: 10px; margin-bottom: 20px;">Convert</button> -->
+<button id="cnt" onclick="convert()" style="margin-top: 10px; margin-bottom: 20px;">Convert</button>
 </div>
 
 <script>
-  //Define currency worldwide 
+  	//Define currency worldwide for use in other all function 
 	var currency = [];
 
-		//Get Data from API
+	//Get Data from API
     	const api_url = "http://data.fixer.io/api/latest?access_key=902b9d44253615805d5985ba2bd81669";
     	async function getapi(url){
     		const response = await fetch(url);
@@ -59,12 +59,11 @@ for(var code in currency){
 	dropDown.appendChild(option);
 	currency2.selectedIndex = 1;
 	 }
-
    } 
 }
 getapi(api_url);
 
-//Convert Button Method
+//Convert Button for Change Currency & But onchange input function already given
 function convert(){
 	var input1 = document.getElementById("c1").value;
 	var input2 = document.getElementById("c2").value;
@@ -78,17 +77,13 @@ function convert(){
 		var input2 = document.getElementById("c2").value;
 
 		var result = document.getElementById("c2").value = data1*input1;
-
-
-	if (input1 == '') 
-	{
-	alert("Please write any Value")
-	}else(
-				
-				document.getElementById("c2").value =  input1);
-
+		if (input1 == '') 
+		{
+			alert("Please write any Value")
+		}else(document.getElementById("c2").value =  input1);
 }
-//on first drop down change input value for second input value
+	
+//First drop downdown function for change input value for second input
 function drop1(){
 	var selectedDrop = document.getElementById("currency1").value;
 	var data1 = currency[selectedDrop];
@@ -97,7 +92,7 @@ function drop1(){
 
 }
 
-  //on second drop down change input value for first input value
+//Second drop downdown function for change input value for First input
 function drop2(){
 	var selectedDrop = document.getElementById("currency2").value;
 	var data2 = currency[selectedDrop];
