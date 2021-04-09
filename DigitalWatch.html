@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digital Watch</title>
+
+	<style>
+        #clock {
+            font-size: 175px;
+            width: 900px;
+            margin: 200px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: black;
+        }
+    </style>
+
+</head>
+<body style="text-align: center;">
+<div id="clock" style="color: white;">00:00:00AM</div>
+
+<span>Created By : Gorishankar Puniya</span>
+
+  <script>
+//set Time interval for show in 1 Sec(1000)
+setInterval(showTime, 1000);
+function showTime() {
+	var time = new Date();
+	var hour = time.getHours();
+	var min = time.getMinutes();
+	var sec = time.getSeconds();
+	am_pm = "AM"
+
+	if (hour>12) {
+		hour-=12;
+		am_pm = "PM";
+	}
+	if ( hour == 0 ) {
+		hour = 12;
+		am_pm = "AM";
+	}
+
+	 hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+
+	var currentTime = hour + ":" + min + ":" + sec + am_pm
+  //result set in clock <div>
+	document.getElementById("clock").innerHTML = currentTime;
+
+}
+
+</script>
+
+</body>
+</html>
